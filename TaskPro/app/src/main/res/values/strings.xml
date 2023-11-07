@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TaskPro</string>
+
+    <!--Main Activity-->
+    <string name="newtask">New task</string>
+    <string name="search">Search</string>
+    <string name="showall">Show all</string>
+
+    <!--2 Activity-->
+    <string name="send">Send</string>
+
+    <!--3 Activity-->
+
+    <!--4 Activity-->
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+</resources>
