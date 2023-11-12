@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.ButtonSearch:
                 Intent intentSearch = new Intent(this, Activity3.class);
-                intentSearch.putExtra("fromButtonSearch", true);
+                intentSearch.putExtra("showAll", false);
                 startActivity(intentSearch);
                 break;
 
@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.ButtonShow:
+                Intent intentAll = new Intent(this, Activity3.class);
+                intentAll.putExtra("showAll", true);
+                startActivity(intentAll);
                 break;
         }
     }

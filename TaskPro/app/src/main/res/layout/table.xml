@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableRow
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/tableRow"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    android:gravity="center"
+    >
+
+<TextView
+    android:id="@+id/rowTitle"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:padding="8dp"
+    android:text="@string/title" />
+
+<TextView
+    android:id="@+id/rowDescription"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:padding="8dp"
+    android:text="@string/description" />
+
+<TextView
+    android:id="@+id/rowDate"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:padding="8dp"
+    android:text="@string/date" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/pencil" />
+
+</TableRow>
