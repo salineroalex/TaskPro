@@ -7,7 +7,7 @@
     tools:context=".Activity4">
 
     <TextView
-        android:id="@+id/TextViewTitle1"
+        android:id="@+id/textViewTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.136" />
 
     <TextView
-        android:id="@+id/TextViewTitleCaja"
+        android:id="@+id/textViewTitleCaja"
         android:layout_width="244dp"
         android:layout_height="23dp"
         android:text="TextView"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.201" />
 
     <TextView
-        android:id="@+id/TextViewDescriptionTitle"
+        android:id="@+id/textViewDescriptionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.268" />
 
     <TextView
-        android:id="@+id/TextViewDescriptionTitleCaja"
+        android:id="@+id/textViewDescriptionTitleCaja"
         android:layout_width="240dp"
         android:layout_height="119dp"
         android:text="TextView"
@@ -55,7 +55,7 @@
         app:layout_constraintVertical_bias="0.374" />
 
     <TextView
-        android:id="@+id/TextViewDate"
+        android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Date2"
+        android:id="@+id/date2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.574" />
 
     <ImageButton
-        android:id="@+id/ButtonCalendar"
+        android:id="@+id/buttonCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -88,10 +88,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.697"
-        app:srcCompat="@drawable/calendarsymbol" />
+        app:srcCompat="@drawable/calendarbutton_view" />
 
     <Button
-        android:id="@+id/ButtonAccept1"
+        android:id="@+id/buttonAccept1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/accept"
@@ -103,7 +103,7 @@
         app:layout_constraintVertical_bias="0.959" />
 
     <Button
-        android:id="@+id/ButtonCancel1"
+        android:id="@+id/buttonCancel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancel"

@@ -7,7 +7,7 @@
     tools:context=".Activity3">
 
     <ImageButton
-        android:id="@+id/ButtonVolver"
+        android:id="@+id/buttonVolver"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@null"
@@ -20,12 +20,12 @@
         app:srcCompat="@drawable/arrowleft" />
 
     <EditText
-        android:id="@+id/EditText1"
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/search"
-        android:inputType="PlainText"
+        android:inputType="text"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.135" />
 
     <ImageButton
-        android:id="@+id/ButtonSearch"
+        android:id="@+id/buttonSearch1"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@null"
