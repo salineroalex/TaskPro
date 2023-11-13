@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/ButtonShow"
+        android:id="@+id/buttonShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/showall"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.538" />
 
     <Button
-        android:id="@+id/ButtonSearch"
+        android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.418" />
 
     <Button
-        android:id="@+id/ButtonNew"
+        android:id="@+id/buttonNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/newtask"

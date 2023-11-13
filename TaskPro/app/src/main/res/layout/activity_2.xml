@@ -7,7 +7,7 @@
     tools:context=".Activity2">
 
     <Button
-        android:id="@+id/ButtonAccept"
+        android:id="@+id/buttonAccept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/send"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <ImageButton
-        android:id="@+id/ButtonVolver"
+        android:id="@+id/buttonVolver1"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@null"
@@ -32,11 +32,11 @@
         app:srcCompat="@drawable/arrowleft" />
 
     <EditText
-        android:id="@+id/PlainTextDesc1"
+        android:id="@+id/plainTextDesc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="PlainText"
+        android:inputType="text"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.408" />
 
     <TextView
-        android:id="@+id/TextViewTitle1"
+        android:id="@+id/textViewTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.203" />
 
     <TextView
-        android:id="@+id/TextViewDesc"
+        android:id="@+id/textViewDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextViewDesc"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.356" />
 
     <EditText
-        android:id="@+id/Date1"
+        android:id="@+id/date1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -86,11 +86,11 @@
         app:layout_constraintVertical_bias="0.566" />
 
     <EditText
-        android:id="@+id/PlainTextTitle1"
+        android:id="@+id/plainTextTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="PlainText"
+        android:inputType="text"
         android:text="Name"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.259" />
 
     <TextView
-        android:id="@+id/TextViewDate"
+        android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

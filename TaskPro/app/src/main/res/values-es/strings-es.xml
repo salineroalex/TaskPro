@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaskPro</string>
+
+    <!--Main Activity-->
+    <string name="newtask">Nueva Tarea</string>
+    <string name="search">Buscar</string>
+    <string name="showall">Mostrar todo</string>
+
+    <!--2 Activity-->
+    <string name="send">Enviar</string>
+
+    <!--3 Activity-->
+
+    <!--4 Activity-->
+    <string name="accept">Acceptar</string>
+    <string name="cancel">Cancelar</string>
+</resources>
