@@ -13,6 +13,15 @@
     <!--3 Activity-->
 
     <!--4 Activity-->
-    <string name="accept">Acceptar</string>
-    <string name="cancel">Cancelar</string>
+    <string name="a4_title">Título</string>
+    <string name ="a4_description">Descripción</string>
+    <string name="a4_date">Fecha</string>
+    <string name="a4_accept">Aceptar</string>
+    <string name="a4_cancel">Cancelar</string>
+    <string name="a4_chooseApp">Elige aplicación para abrir el calendario</string>
+
+    <!-- FAKE task for 4 Activity-->
+    <string name="a4_fake_title">Nombre de tarea</string>
+    <string name="a4_fake_description">Esta es la descripción de la tarea falsa.</string>
+    <string name="a4_fake_date">07/05/2023</string>
 </resources>
