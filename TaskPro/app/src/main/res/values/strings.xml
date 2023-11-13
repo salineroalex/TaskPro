@@ -8,12 +8,12 @@
 
     <!--2 Activity-->
     <string name="send">Send</string>
+
+    <!--3 Activity-->
     <string name="title"> Title </string>
     <string name="description"> Description </string>
     <string name="date"> Date </string>
     <string name="edit"> Edit </string>
-    <!--3 Activity-->
-
     <!--4 Activity-->
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>

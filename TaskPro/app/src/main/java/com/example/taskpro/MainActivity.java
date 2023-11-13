@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonNew =(Button)findViewById(R.id.ButtonNew);
-        buttonSearch =(Button)findViewById(R.id.ButtonSearch);
-        buttonShow =(Button)findViewById(R.id.ButtonShow);
+        buttonNew =(Button)findViewById(R.id.buttonNew);
+        buttonSearch =(Button)findViewById(R.id.buttonSearch);
+        buttonShow =(Button)findViewById(R.id.buttonShow);
 
         buttonSearch.setOnClickListener(this);
         buttonNew.setOnClickListener(this);
@@ -42,16 +42,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.ButtonSearch:
+            case R.id.buttonSearch:
                 Intent intentSearch = new Intent(this, Activity3.class);
                 intentSearch.putExtra("showAll", false);
                 startActivity(intentSearch);
                 break;
 
-            case R.id.ButtonNew:
+            case R.id.buttonNew:
                 break;
 
-            case R.id.ButtonShow:
+            case R.id.buttonShow:
                 Intent intentAll = new Intent(this, Activity3.class);
                 intentAll.putExtra("showAll", true);
                 startActivity(intentAll);

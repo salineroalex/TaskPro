@@ -133,9 +133,9 @@ public class Activity3 extends AppCompatActivity {
         // Initialize views
         tableLayout = (TableLayout) findViewById(R.id.tableLayout);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
-        buttonBack =(ImageButton) findViewById(R.id.ButtonVolver);
-        buttonSearch = (ImageButton)  findViewById(R.id.ButtonSearch);
-        editText1 = (EditText) findViewById(R.id.EditText1);
+        buttonBack =(ImageButton) findViewById(R.id.buttonVolver);
+        buttonSearch = (ImageButton)  findViewById(R.id.buttonSearch1);
+        editText1 = (EditText) findViewById(R.id.editText1);
         scrollView.setVisibility(View.GONE);
 
         // Initialize the database
