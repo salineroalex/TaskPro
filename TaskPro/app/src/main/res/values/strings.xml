@@ -5,7 +5,13 @@
     <string name="newtask">New task</string>
     <string name="search">Search</string>
     <string name="showall">Show all</string>
-
+    <string name="language"> Change language </string>
+    <string name="str_en" >English</string>
+    <string name="str_es" >Spanish</string>
+    <string-array name="languages" >
+        <item>@string/str_en</item>
+        <item>@string/str_es</item>
+    </string-array>
     <!--2 Activity-->
     <string name="send">Send</string>
 
