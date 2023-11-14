@@ -21,8 +21,12 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 import static com.example.taskpro.R.layout.activity_2;
 
@@ -34,6 +38,8 @@ public class Activity3 extends AppCompatActivity {
     private ImageButton buttonSearch;
     private ScrollView scrollView;
     private ImageButton buttonBack;
+    private static String id = "id";
+    private static String showAll ="showAll";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,7 @@ public class Activity3 extends AppCompatActivity {
 
         //Get the intent
         Intent intent = getIntent();
-        if (intent.getBooleanExtra("showAll", true)) {
+        if (intent.getBooleanExtra(showAll, true)) {
             // If the intent indicates to show all, create the table with all data
             createTable(true);
             // Hide the search button and text field
@@ -81,7 +87,7 @@ public class Activity3 extends AppCompatActivity {
                 cursor = db.rawQuery("SELECT * FROM tasks WHERE Title LIKE ?", new String[]{searchString});
             } else {
                 // If the search term is blank, show a message to the user
-                Toast.makeText(Activity3.this, "No matching information found for the given search", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity3.this, R.string.error1, Toast.LENGTH_SHORT).show();
             }
         } else {
             // Show all data if the seeAll flag is true
@@ -109,7 +115,7 @@ public class Activity3 extends AppCompatActivity {
                     public void onClick(View v) {
                         // When the button is clicked, open the edit activity with the param id
                         Intent intentEdit = new Intent(Activity3.this, Activity2.class);
-                        intentEdit.putExtra("id", v.getId());
+                        intentEdit.putExtra(id , v.getId());
                         startActivity(intentEdit);
                     }
                 });
@@ -119,7 +125,7 @@ public class Activity3 extends AppCompatActivity {
         } else {
             // If no results are found, hide the table and show a message to the user
             scrollView.setVisibility(View.GONE);
-            Toast.makeText(Activity3.this, "Please enter a search term", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity3.this, R.string.error2, Toast.LENGTH_SHORT).show();
         }
 
         // Close the cursor after using it

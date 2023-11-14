@@ -22,6 +22,8 @@
     <string name="description"> Descripción </string>
     <string name="date"> Fecha </string>
     <string name="edit"> Editar </string>
+    <string name="error1"> No se encontró información que coincida con la búsqueda. </string>
+    <string name="error2"> Introduzca un parámetro válido. </string>
     <!--4 Activity-->
     <string name="accept">Acceptar</string>
     <string name="cancel">Cancelar</string>
