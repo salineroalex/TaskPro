@@ -8,6 +8,9 @@
     <string name="showall">Mostrar todo</string>
 
     <!--2 Activity-->
+    <string name="textViewTitle1">Title</string>
+    <string name="textViewDesc">Description</string>
+    <string name="textViewDate">Date</string>
     <string name="send">Enviar</string>
 
     <!--3 Activity-->
