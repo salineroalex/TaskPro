@@ -40,7 +40,7 @@ public class Activity2 extends AppCompatActivity {
 
         // If a valid item ID is provided, fetch data from the database and populate UI
         if (itemId != -1) {
-            Cursor cursor = db.rawQuery("SELECT * FROM tasks WHERE _id = ?", new String[]{String.valueOf(itemId)});
+            Cursor cursor = db.rawQuery("SELECT * FROM tasks WHERE id = ?", new String[]{String.valueOf(itemId)});
             if (cursor != null && cursor.moveToFirst()) {
                 // Populate UI elements with data from the database
                 plainTextTitle.setText(cursor.getString(1));
@@ -51,7 +51,7 @@ public class Activity2 extends AppCompatActivity {
         }
 
         // Initialize buttons
-        buttonAccept1 = findViewById(R.id.buttonAccept1);
+        buttonAccept1 = findViewById(R.id.buttonAccept);
         buttonReturn = findViewById(R.id.buttonReturn);
 
         // Set click listener for the "Accept" button
