@@ -19,6 +19,7 @@
     <string name="textViewDesc">Description</string>
     <string name="textViewDate">Date</string>
     <string name="send">Enviar</string>
+    <string name ="errorFields"> Por favor, rellene todos los campos </string>
 
     <!--3 Activity-->
     <string name="title"> Título </string>

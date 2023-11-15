@@ -40,6 +40,7 @@ public class Activity3 extends AppCompatActivity {
     private ImageButton buttonBack;
     private static String id = "id";
     private static String showAll ="showAll";
+    private static String database = "TaskPro";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +146,7 @@ public class Activity3 extends AppCompatActivity {
         scrollView.setVisibility(View.GONE);
 
         // Initialize the database
-        db = openOrCreateDatabase("TaskPro", MODE_PRIVATE, null);
+        db = openOrCreateDatabase(database, MODE_PRIVATE, null);
     }
 }
 

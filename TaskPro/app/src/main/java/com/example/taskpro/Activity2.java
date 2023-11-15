@@ -21,14 +21,18 @@ public class Activity2 extends AppCompatActivity {
     private EditText plainTextTitle, plainTextDesc, date;
     private Button buttonAccept1;
     private ImageButton buttonReturn;
-
+    private static String database = "TaskPro";
+    private static String id = "id";
+    private static String titleDb= "title";
+    private static String descDb = "desc";
+    private static String taskDateDb = "taskDate";
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
         // Open or create the TaskPro database
-        db = openOrCreateDatabase("TaskPro", MODE_PRIVATE, null);
+        db = openOrCreateDatabase(database, MODE_PRIVATE, null);
 
         // Initialize UI elements
         plainTextTitle = findViewById(R.id.plainTextTitle1);
@@ -36,7 +40,7 @@ public class Activity2 extends AppCompatActivity {
         date = findViewById(R.id.date1);
 
         // Retrieve item ID from the intent
-        int itemId = getIntent().getIntExtra("id", -1);
+        int itemId = getIntent().getIntExtra(id, -1);
 
         // If a valid item ID is provided, fetch data from the database and populate UI
         if (itemId != -1) {
@@ -65,14 +69,14 @@ public class Activity2 extends AppCompatActivity {
 
                 // Check if any of the fields are empty
                 if (title.isEmpty() || desc.isEmpty() || taskDate.isEmpty()) {
-                    Toast.makeText(Activity2.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity2.this, R.string.errorFields, Toast.LENGTH_SHORT).show();
                 } else {
                     // Create an intent to launch Activity4 and pass data as extras
                     Intent intent = new Intent(Activity2.this, Activity4.class);
-                    intent.putExtra("id", itemId);
-                    intent.putExtra("title", title);
-                    intent.putExtra("desc", desc);
-                    intent.putExtra("taskDate", taskDate);
+                    intent.putExtra(id, itemId);
+                    intent.putExtra(titleDb, title);
+                    intent.putExtra(descDb, desc);
+                    intent.putExtra(taskDateDb, taskDate);
                     // Start Activity4
                     startActivity(intent);
                 }
