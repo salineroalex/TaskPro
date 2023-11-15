@@ -94,7 +94,7 @@ public class Activity2 extends AppCompatActivity {
                     intent.putExtra(descDb, desc);
                     intent.putExtra(taskDateDb, taskDate);
                     // Start Activity4
-                    startActivity(intent);
+                    startActivityForResult(intent, 2);
                 }
             }
         });
@@ -114,11 +114,27 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
-                final String selectedDate = day + "/" + (month+1) + "/" + year;
+                String selectedDate = null;
+                if(day < 10){
+                    //selectedDate = "0" + day + "/" + (month+1) + "/" + year;
+                    selectedDate = year + "/" + (month + 1) + "/0" + day;
+                } else {
+                    selectedDate = year + "/" + (month + 1) + "/" + day;
+                }
                 date.setText(selectedDate);
             }
         });
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 2){
+            if(resultCode == 1){
+                setResult(1);
+                finish();
+            }
+        }
     }
 
 }

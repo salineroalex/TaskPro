@@ -14,16 +14,19 @@ import android.widget.Button;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private Button buttonNew;
     private Button buttonSearch;
     private Button buttonShow;
     private Locale locale;
     private Button buttonLanguage;
-    private Configuration config = new Configuration();
-
+    private static String showAll = "showAll";
+    private static String languageEs = "es";
+    private static String languageEn = "en";
     private static String database = "TaskPro";
+
+    private Configuration config = new Configuration();
 
 
     @Override
@@ -35,46 +38,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSearch = (Button) findViewById(R.id.buttonSearch);
         buttonShow = (Button) findViewById(R.id.buttonShow);
         buttonLanguage = (Button) findViewById(R.id.buttonLanguage);
-        buttonSearch.setOnClickListener(this);
-        buttonNew.setOnClickListener(this);
-        buttonShow.setOnClickListener(this);
-        buttonLanguage.setOnClickListener(this);
-        db = openOrCreateDatabase(database, Context.MODE_PRIVATE, null);
-
-        db.execSQL("CREATE TABLE IF NOT EXISTS tasks(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "Title VARCHAR," +
-                "Description VARCHAR," +
-                "CreationDate DATE" +
-                ");");
-
-
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.buttonSearch:
-                Intent intentSearch = new Intent(this, Activity3.class);
-                intentSearch.putExtra("showAll", false);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentSearch = new Intent(MainActivity.this, Activity3.class);
+                intentSearch.putExtra(showAll, false);
                 startActivity(intentSearch);
-                break;
-
-            case R.id.buttonNew:
+            }
+        });
+        buttonNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intentNew = new Intent(MainActivity.this, Activity2.class);
                 startActivity(intentNew);
-                break;
-
-            case R.id.buttonShow:
-                Intent intentAll = new Intent(this, Activity3.class);
-                intentAll.putExtra("showAll", true);
+            }
+        });
+        buttonShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentAll = new Intent(MainActivity.this, Activity3.class);
+                intentAll.putExtra(showAll, true);
                 startActivity(intentAll);
-                break;
-                
-            case R.id.buttonLanguage:
-                AlertDialog.Builder b = new AlertDialog.Builder(this);
+            }
+        });
+        buttonLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this);
                 String buttonLanguageText = buttonLanguage.getText().toString();
                 b.setTitle(getResources().getString(R.string.language));
                 String[] types = getResources().getStringArray(R.array.languages);
@@ -82,14 +72,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        switch (which){
+                        switch (which) {
                             case 0:
-                                locale = new Locale("en");
-                                config.locale =locale;
+                                locale = new Locale(languageEn);
+                                config.locale = locale;
                                 break;
                             case 1:
-                                locale = new Locale("es");
-                                config.locale =locale;
+                                locale = new Locale(languageEs);
+                                config.locale = locale;
                                 break;
                         }
                         getResources().updateConfiguration(config, null);
@@ -100,6 +90,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 });
                 b.show();
-        }
+            }
+        });
+        db = openOrCreateDatabase(database, Context.MODE_PRIVATE, null);
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS tasks(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "Title VARCHAR," +
+                "Description VARCHAR," +
+                "CreationDate DATE" +
+                ");");
+
     }
 }

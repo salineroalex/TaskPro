@@ -94,7 +94,7 @@ public class Activity3 extends AppCompatActivity {
             cursor = db.rawQuery("SELECT * FROM tasks", null);
         }
 
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor != null) {
             scrollView.setVisibility(View.VISIBLE);
             while(cursor.moveToNext()) {
                 // Inflate the view for the table row
@@ -116,7 +116,7 @@ public class Activity3 extends AppCompatActivity {
                         // When the button is clicked, open the edit activity with the param id
                         Intent intentEdit = new Intent(Activity3.this, Activity2.class);
                         intentEdit.putExtra(id , v.getId());
-                        startActivity(intentEdit);
+                        startActivityForResult(intentEdit, 1);
                     }
                 });
                 // Add the row view to the table
@@ -146,6 +146,15 @@ public class Activity3 extends AppCompatActivity {
 
         // Initialize the database
         db = openOrCreateDatabase("TaskPro", MODE_PRIVATE, null);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            if(resultCode == 1){
+                finish();
+            }
+        }
     }
 }
 
