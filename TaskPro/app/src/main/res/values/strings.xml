@@ -13,6 +13,9 @@
         <item>@string/str_es</item>
     </string-array>
     <!--2 Activity-->
+    <string name="textViewTitle1">Title</string>
+    <string name="textViewDesc">Description</string>
+    <string name="textViewDate">Date</string>
     <string name="send">Send</string>
 
     <!--3 Activity-->
