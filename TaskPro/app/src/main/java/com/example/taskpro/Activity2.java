@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -23,7 +22,7 @@ public class Activity2 extends AppCompatActivity {
     private ImageButton buttonReturn;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
