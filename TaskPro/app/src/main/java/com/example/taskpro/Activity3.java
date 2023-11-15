@@ -79,6 +79,7 @@ public class Activity3 extends AppCompatActivity {
 
         Cursor cursor = null;
         String editText = editText1.getText().toString();
+        Boolean encontrado = false;
         tableLayout.removeAllViews();
         if (!seeAll) {
             if (!editText.equals("")) {
@@ -95,9 +96,10 @@ public class Activity3 extends AppCompatActivity {
         }
 
         if (cursor != null) {
-            scrollView.setVisibility(View.VISIBLE);
             while (cursor.moveToNext()) {
                 // Inflate the view for the table row
+                encontrado = true;
+                scrollView.setVisibility(View.VISIBLE);
                 View view = LayoutInflater.from(this).inflate(R.layout.table, null, false);
                 TextView title = view.findViewById(R.id.rowTitle);
                 TextView description = view.findViewById(R.id.rowDescription);
@@ -122,13 +124,13 @@ public class Activity3 extends AppCompatActivity {
                 // Add the row view to the table
                 tableLayout.addView(view);
             }
-        } else {
+        }
+        if (!encontrado) {
             // If no results are found, hide the table and show a message to the user
             scrollView.setVisibility(View.GONE);
-            //Toast.makeText(Activity3.this, R.string.error2, Toast.LENGTH_SHORT).show();
-            if (!editText.equals("")) {
+            if (!editText.equals(""))
                 Toast.makeText(Activity3.this, R.string.error1, Toast.LENGTH_SHORT).show();
-            }
+
         }
 
         // Close the cursor after using it
