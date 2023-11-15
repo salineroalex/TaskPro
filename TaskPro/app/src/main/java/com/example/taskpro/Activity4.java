@@ -33,7 +33,7 @@ import java.util.Date;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Activity4 extends AppCompatActivity implements OnClickListener {
 
-
+    // Initialise variables
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
     TextView textViewTitle = null;
@@ -58,16 +58,14 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
 
+        // Get extras from previous intent
         Bundle extras = getIntent().getExtras();
         id_received = extras.getInt(id);
-
         titleDb_received = extras.getString(titleDb);
         descDb_received = extras.getString(descDb);
         taskDateDb_received = extras.getString(taskDateDb);
-        id_received = extras.getInt(id);
 
-        Intent intent_new = null;
-
+        // Set the views
         textViewTitle = (TextView) findViewById(R.id.textViewTitleCaja);
         textViewTitle.setText(titleDb_received);
         textViewDescription = (TextView) findViewById(R.id.textViewDescriptionTitleCaja);
@@ -87,17 +85,18 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
+        // Listen for onClick of each button
         switch (v.getId()) {
             case R.id.buttonCalendar:
-                String fechaTexto = date.getText().toString();
-
                 Date fecha;
 
                 try {
+                    // Parse date to calendar app format
                     fecha = dateFormat.parse(taskDateDb_received);
                     long startMillis = fecha.toInstant().toEpochMilli();
                     long endMillis = startMillis + (24 * 60 * 60 * 1000);
 
+                    // Set new intent with extras to send to calendar app
                     Intent intent_new = new Intent(Intent.ACTION_EDIT);
                     intent_new.setType("vnd.android.cursor.item/event");
                     intent_new.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startMillis);
@@ -106,16 +105,22 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                     intent_new.putExtra(CalendarContract.Events.TITLE, textViewTitle.getText().toString());
                     intent_new.putExtra(CalendarContract.Events.DESCRIPTION, textViewDescription.getText().toString());
 
+                    // Initialise chooser, make sure there is an app for the event
                     Intent chooser = intent_new.createChooser(intent_new, getString(R.string.a4_chooseApp));
-                    startActivity(chooser);
+                    if((chooser.resolveActivity(getPackageManager()) != null)){
+                        startActivity(chooser);
+                    } else {
+                        Toast.makeText(this, R.string.a4_no_app_error, Toast.LENGTH_SHORT).show();
+                    }
 
                 } catch (ParseException e) {
-                    e.printStackTrace();
+                    Toast.makeText(this, R.string.a4_parse_exception, Toast.LENGTH_SHORT).show();
                 }
 
                 break;
 
             case R.id.buttonCancel1:
+                // Dialog to exit or edit the task
                 AlertDialog.Builder b = new AlertDialog.Builder(this);
                 b.setTitle(getResources().getString(R.string.a4_confirmation));
                 String[] types = getResources().getStringArray(R.array.a4_edit_exit);
@@ -123,6 +128,7 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        // The options for the dialog
                         switch (which) {
                             case 0:
                                 setResult(0);
@@ -135,43 +141,33 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                         }
                     }
                 });
-
+                // Show the dialog
                 b.show();
-                //finish();
                 break;
 
             case R.id.buttonAccept1:
                 int max_id = 0, id = 0;
-                LocalDate date_parsed = null;
-                Cursor response;
 
-                // Code for verification when type: edit.
+                // Adjust visibility and accessibility of correspondent buttons.
                 buttonCalendar.setEnabled(true);
                 buttonCalendar.setVisibility(View.VISIBLE);
                 buttonCancelar.setEnabled(false);
                 buttonCancelar.setVisibility(View.GONE);
                 buttonAceptar.setEnabled(false);
-                db =
-
-                        openOrCreateDatabase(database, Context.MODE_PRIVATE, null);
-
+                db = openOrCreateDatabase(database, Context.MODE_PRIVATE, null);
 
                 if (id_received == -1) {
+                    // Code for insert when type: create.
                     Cursor c = db.rawQuery("SELECT max(id) FROM tasks", null);
                     c.moveToNext();
                     max_id = c.getInt(0);
                     c.close();
                     id = max_id + 1;
-                    //date_parsed = LocalDate.parse(taskDateDb_received, dateFormat);
                     db.execSQL("INSERT INTO tasks (id, Title, Description, CreationDate) VALUES (" +
                             id + ", '" + titleDb_received + "', '" + descDb_received + "', '" + taskDateDb_received +
                             "');");
                 } else {
-                    //date_parsed = LocalDate.parse(taskDateDb_received, dateFormat);
-                    /*db.rawQuery("UPDATE tasks set (Title =" + "'" + titleDb_received + "'" + ", Description = " + "'" + descDb_received + "'" + ", CreationDate = " + "'" + taskDateDb_received +
-                            "') " +
-                            "WHERE id = " + "'" + +id_received + "'" + ";", null);*/
-
+                    // Code for modification when type: edit.
                     ContentValues values = new ContentValues();
                     values.put("Title", titleDb_received);
                     values.put("Description", descDb_received);
@@ -179,13 +175,6 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                     db.update("tasks", values, "id = " + id_received, null);
 
                 }
-
-
-
-                /*db.execSQL("INSERT INTO tasks (id, Title, Description, CreationDate) VALUES (" +
-                        id + "," + titleDb_received + descDb_received + date +
-                        ");");*/
-
                 break;
             default:
 

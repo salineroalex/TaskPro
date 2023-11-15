@@ -40,4 +40,6 @@
         <item>@string/a4_edit</item>
         <item>@string/a4_exit</item>
     </string-array>
+    <string name="a4_no_app_error">No app available to do this action.</string>
+    <string name="a4_parse_exception">Data management error.</string>
 </resources>
