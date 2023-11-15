@@ -20,7 +20,7 @@
     <string name="description"> Description </string>
     <string name="date"> Date </string>
     <string name="edit"> Edit </string>
-    <string name="error1"> Please enter a search term </string>
+    <string name="error1"> No information matching the search was found.</string>
     <string name="error2"> Please enter a search term </string>
     <!--4 Activity-->
     <string name="accept">Accept</string>
