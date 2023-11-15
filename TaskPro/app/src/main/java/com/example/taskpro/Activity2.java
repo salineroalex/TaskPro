@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 
 public class Activity2 extends AppCompatActivity {
 
