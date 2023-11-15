@@ -27,6 +27,15 @@
     <string name="error1"> No information matching the search was found. </string>
     <string name="error2"> Please enter a search term </string>
     <!--4 Activity-->
-    <string name="accept">Accept</string>
-    <string name="cancel">Cancel</string>
+    <string name="a4_title">Title</string>
+    <string name ="a4_description">Description</string>
+    <string name="a4_date">Date</string>
+    <string name="a4_accept">Accept</string>
+    <string name="a4_cancel">Cancel</string>
+    <string name="a4_chooseApp">Choose application to open the calendar</string>
+
+    <!-- FAKE task for 4 Activity-->
+    <string name="a4_fake_title">Activity name</string>
+    <string name="a4_fake_description">This is the description for the fake task.</string>
+    <string name="a4_fake_date">05/07/2023</string>
 </resources>

@@ -47,11 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ");");
 
 
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.buttonSearch:
                 Intent intentSearch = new Intent(this, Activity3.class);
                 intentSearch.putExtra("showAll", false);
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intentAll.putExtra("showAll", true);
                 startActivity(intentAll);
                 break;
+                
             case R.id.buttonLanguage:
                 AlertDialog.Builder b = new AlertDialog.Builder(this);
                 String buttonLanguageText = buttonLanguage.getText().toString();
