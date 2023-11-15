@@ -15,7 +15,11 @@
     </string-array>
 
     <!--2 Activity-->
+    <string name="textViewTitle1">Título</string>
+    <string name="textViewDesc">Descripción</string>
+    <string name="textViewDate">Fecha</string>
     <string name="send">Enviar</string>
+    <string name ="errorFields"> Por favor, rellene todos los campos </string>
 
     <!--3 Activity-->
     <string name="title"> Título </string>
