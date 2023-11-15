@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonLanguage;
     private Configuration config = new Configuration();
 
+    private static String database = "TaskPro";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonNew.setOnClickListener(this);
         buttonShow.setOnClickListener(this);
         buttonLanguage.setOnClickListener(this);
-        db = openOrCreateDatabase("TaskPro", Context.MODE_PRIVATE, null);
+        db = openOrCreateDatabase(database, Context.MODE_PRIVATE, null);
 
         db.execSQL("CREATE TABLE IF NOT EXISTS tasks(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
