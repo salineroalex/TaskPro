@@ -1,15 +1,26 @@
 package com.example.taskpro;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import static android.app.PendingIntent.getActivity;
+import static androidx.core.content.ContentProviderCompat.requireContext;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -37,6 +48,12 @@ public class Activity2 extends AppCompatActivity {
         plainTextTitle = findViewById(R.id.plainTextTitle1);
         plainTextDesc = findViewById(R.id.plainTextDesc1);
         date = findViewById(R.id.date1);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
 
         // Retrieve item ID from the intent
         int itemId = getIntent().getIntExtra(id, -1);
@@ -91,4 +108,17 @@ public class Activity2 extends AppCompatActivity {
             }
         });
     }
+    private void showDatePickerDialog(){
+        DatePickerFragment newFragment = new DatePickerFragment().newInstance(new DatePickerDialog.OnDateSetListener(){
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                date.setText(selectedDate);
+            }
+        });
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
 }
