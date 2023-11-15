@@ -39,7 +39,7 @@ public class Activity3 extends AppCompatActivity {
     private ScrollView scrollView;
     private ImageButton buttonBack;
     private static String id = "id";
-    private static String showAll = "showAll";
+    private static String showAll ="showAll";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,20 +83,19 @@ public class Activity3 extends AppCompatActivity {
         if (!seeAll) {
             if (!editText.equals("")) {
                 // Perform the search in the database based on the entered term
-                String searchString = "%" + editText1.getText().toString() + "%";
-                cursor = db.rawQuery("SELECT * FROM tasks WHERE Title LIKE ?", new String[]{searchString});
+
             } else {
                 // If the search term is blank, show a message to the user
-                Toast.makeText(Activity3.this, R.string.error2, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity3.this, R.string.error1, Toast.LENGTH_SHORT).show();
             }
         } else {
             // Show all data if the seeAll flag is true
             cursor = db.rawQuery("SELECT * FROM tasks", null);
         }
 
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor != null) {
             scrollView.setVisibility(View.VISIBLE);
-            while (cursor.moveToNext()) {
+            while(cursor.moveToNext()) {
                 // Inflate the view for the table row
                 View view = LayoutInflater.from(this).inflate(R.layout.table, null, false);
                 TextView title = view.findViewById(R.id.rowTitle);
@@ -115,7 +114,7 @@ public class Activity3 extends AppCompatActivity {
                     public void onClick(View v) {
                         // When the button is clicked, open the edit activity with the param id
                         Intent intentEdit = new Intent(Activity3.this, Activity2.class);
-                        intentEdit.putExtra(id, v.getId());
+                        intentEdit.putExtra(id , v.getId());
                         startActivity(intentEdit);
                     }
                 });
@@ -125,10 +124,7 @@ public class Activity3 extends AppCompatActivity {
         } else {
             // If no results are found, hide the table and show a message to the user
             scrollView.setVisibility(View.GONE);
-            if (!editText.equals("")) {
-                Toast.makeText(Activity3.this, R.string.error1, Toast.LENGTH_SHORT).show();
-            }
-
+            Toast.makeText(Activity3.this, R.string.error2, Toast.LENGTH_SHORT).show();
         }
 
         // Close the cursor after using it
@@ -142,8 +138,8 @@ public class Activity3 extends AppCompatActivity {
         // Initialize views
         tableLayout = (TableLayout) findViewById(R.id.tableLayout);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
-        buttonBack = (ImageButton) findViewById(R.id.buttonVolver);
-        buttonSearch = (ImageButton) findViewById(R.id.buttonSearch1);
+        buttonBack =(ImageButton) findViewById(R.id.buttonVolver);
+        buttonSearch = (ImageButton)  findViewById(R.id.buttonSearch1);
         editText1 = (EditText) findViewById(R.id.editText1);
         scrollView.setVisibility(View.GONE);
 
