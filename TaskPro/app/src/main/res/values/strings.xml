@@ -5,13 +5,41 @@
     <string name="newtask">New task</string>
     <string name="search">Search</string>
     <string name="showall">Show all</string>
-
+    <string name="language"> Change language </string>
+    <string name="str_en">English</string>
+    <string name="str_es">Spanish</string>
+    <string-array name="languages">
+        <item>@string/str_en</item>
+        <item>@string/str_es</item>
+    </string-array>
     <!--2 Activity-->
+    <string name="textViewTitle1">Title</string>
+    <string name="textViewDesc">Description</string>
+    <string name="textViewDate">Date</string>
     <string name="send">Send</string>
+    <string name="errorFields"> Please fill in all fields</string>
 
     <!--3 Activity-->
-
+    <string name="title"> Title </string>
+    <string name="description"> Description </string>
+    <string name="date"> Date </string>
+    <string name="edit"> Edit </string>
+    <string name="error1"> No information matching the search was found. </string>
+    <string name="error2"> Please enter a search term </string>
     <!--4 Activity-->
-    <string name="accept">Accept</string>
-    <string name="cancel">Cancel</string>
+    <string name="a4_title">Title</string>
+    <string name="a4_description">Description</string>
+    <string name="a4_date">Date</string>
+    <string name="a4_accept">Accept</string>
+    <string name="a4_cancel">Cancel</string>
+    <string name="a4_chooseApp">Choose application to open the calendar</string>
+    <string name="a4_confirmation">Do you want to exit or edit?</string>
+    <string name="a4_edit">Edit</string>
+    <string name="a4_exit">Exit</string>
+    <string-array name="a4_edit_exit">
+        <item>@string/a4_edit</item>
+        <item>@string/a4_exit</item>
+    </string-array>
+    <string name="a4_no_app_error">No app available to do this action.</string>
+    <string name="a4_parse_exception">Data management error.</string>
 </resources>
