@@ -159,6 +159,8 @@ public class Activity3 extends AppCompatActivity {
         if (requestCode == 1) {
             if (resultCode == 1) {
                 finish();
+            } else if (resultCode != 1 && resultCode != 0) {
+                Toast.makeText(Activity3.this, R.string.a4_exit, Toast.LENGTH_SHORT).show();
             }
         }
     }

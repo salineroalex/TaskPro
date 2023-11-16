@@ -104,6 +104,7 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Finish the current activity and return to the previous one
+                setResult(0);
                 finish();
             }
         });
@@ -133,6 +134,8 @@ public class Activity2 extends AppCompatActivity {
             if(resultCode == 1){
                 setResult(1);
                 finish();
+            } else if (resultCode != 1){
+                Toast.makeText(Activity2.this, R.string.a4_exit, Toast.LENGTH_SHORT).show();
             }
         }
     }

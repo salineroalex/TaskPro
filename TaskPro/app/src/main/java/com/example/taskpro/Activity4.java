@@ -31,7 +31,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class Activity4 extends AppCompatActivity implements OnClickListener {
+public class Activity4 extends AppCompatActivity {
 
     // Initialise variables
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -73,21 +73,15 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
         date = (EditText) findViewById(R.id.date2);
         date.setText(taskDateDb_received);
         buttonCalendar = (ImageButton) findViewById(R.id.buttonCalendar);
-        buttonCalendar.setOnClickListener(this);
         buttonCalendar.setEnabled(false);
         buttonCalendar.setVisibility(View.GONE);
         buttonCancelar = (Button) findViewById(R.id.buttonCancel1);
-        buttonCancelar.setOnClickListener(this);
         buttonAceptar = (Button) findViewById(R.id.buttonAccept1);
-        buttonAceptar.setOnClickListener(this);
 
-    }
+        buttonCalendar.setOnClickListener(new View.OnClickListener() {
 
-    @Override
-    public void onClick(View v) {
-        // Listen for onClick of each button
-        switch (v.getId()) {
-            case R.id.buttonCalendar:
+            @Override
+            public void onClick(View v) {
                 Date fecha;
 
                 try {
@@ -110,18 +104,21 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                     if((chooser.resolveActivity(getPackageManager()) != null)){
                         startActivity(chooser);
                     } else {
-                        Toast.makeText(this, R.string.a4_no_app_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Activity4.this, R.string.a4_no_app_error, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (ParseException e) {
-                    Toast.makeText(this, R.string.a4_parse_exception, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity4.this, R.string.a4_parse_exception, Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
 
-                break;
+        buttonCancelar.setOnClickListener(new View.OnClickListener() {
 
-            case R.id.buttonCancel1:
+            @Override
+            public void onClick(View v) {
                 // Dialog to exit or edit the task
-                AlertDialog.Builder b = new AlertDialog.Builder(this);
+                AlertDialog.Builder b = new AlertDialog.Builder(Activity4.this);
                 b.setTitle(getResources().getString(R.string.a4_confirmation));
                 String[] types = getResources().getStringArray(R.array.a4_edit_exit);
                 b.setItems(types, new DialogInterface.OnClickListener() {
@@ -143,9 +140,12 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                 });
                 // Show the dialog
                 b.show();
-                break;
+            }
+        });
+        buttonAceptar.setOnClickListener(new View.OnClickListener() {
 
-            case R.id.buttonAccept1:
+            @Override
+            public void onClick(View v) {
                 int max_id = 0, id = 0;
 
                 // Adjust visibility and accessibility of correspondent buttons.
@@ -175,9 +175,8 @@ public class Activity4 extends AppCompatActivity implements OnClickListener {
                     db.update("tasks", values, "id = " + id_received, null);
 
                 }
-                break;
-            default:
+            }
+        });
 
-        }
     }
 }
