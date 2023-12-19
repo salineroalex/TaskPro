@@ -9,6 +9,7 @@
     <string name="language"> Cambia el idioma </string>
     <string name="str_en" >Ingles </string>
     <string name="str_es" >Castellano </string>
+    <string name="photo"> Hacer una foto</string>
     <string-array name="languages" >
         <item>@string/str_en</item>
         <item>@string/str_es</item>

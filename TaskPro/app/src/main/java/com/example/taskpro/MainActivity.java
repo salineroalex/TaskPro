@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonNew;
     private Button buttonSearch;
     private Button buttonShow;
+    private Button buttonPhoto;
     private Locale locale;
     private Button buttonLanguage;
     private static String showAll = "showAll";
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
         buttonSearch = (Button) findViewById(R.id.buttonSearch);
         buttonShow = (Button) findViewById(R.id.buttonShow);
         buttonLanguage = (Button) findViewById(R.id.buttonLanguage);
+        buttonPhoto = (Button) findViewById(R.id.buttonPhoto);
+        buttonPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPhoto = new Intent(MainActivity.this, Activity5.class);
+                startActivity(intentPhoto);
+            }
+        });
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
