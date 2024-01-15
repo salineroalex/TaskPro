@@ -12,6 +12,7 @@
         <item>@string/str_en</item>
         <item>@string/str_es</item>
     </string-array>
+    <string name="video"> Record a video </string>
     <!--2 Activity-->
     <string name="textViewTitle1">Title</string>
     <string name="textViewDesc">Description</string>

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonNew;
     private Button buttonSearch;
     private Button buttonShow;
+    private Button buttonVideo;
     private Locale locale;
     private Button buttonLanguage;
     private static String showAll = "showAll";
     private static String languageEs = "es";
     private static String languageEn = "en";
     private static String database = "TaskPro";
+    static final int GRABAR_VIDEO = 3;
 
     private Configuration config = new Configuration();
 
@@ -38,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
         buttonSearch = (Button) findViewById(R.id.buttonSearch);
         buttonShow = (Button) findViewById(R.id.buttonShow);
         buttonLanguage = (Button) findViewById(R.id.buttonLanguage);
+        buttonVideo = (Button) findViewById(R.id.buttonVideo);
+        buttonVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                    intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+                    intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intent, GRABAR_VIDEO);
+                    }
+                }
+
+        });
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
