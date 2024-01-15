@@ -10,6 +10,8 @@
     <string name="str_en" >Ingles </string>
     <string name="str_es" >Castellano </string>
     <string name="video"> Grabar un video</string>
+    <string name="photo">Hacer una foto</string>
+    <string name="error">Error al abrir la cámara</string>
     <string-array name="languages" >
         <item>@string/str_en</item>
         <item>@string/str_es</item>

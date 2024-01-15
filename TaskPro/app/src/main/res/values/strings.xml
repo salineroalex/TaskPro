@@ -13,6 +13,8 @@
         <item>@string/str_es</item>
     </string-array>
     <string name="video"> Record a video </string>
+    <string name="photo">Take a photo</string>
+    <string name="error">Error opening camera</string>
     <!--2 Activity-->
     <string name="textViewTitle1">Title</string>
     <string name="textViewDesc">Description</string>
